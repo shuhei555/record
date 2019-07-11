@@ -30,7 +30,10 @@ theme: minima
 plugins:
   - jekyll-feed
 
-permalink: /:categories/:short_year-:month-:day/:title
+lsi: true
+theme: jekyll-theme-cayman
+permalink: :categories/:year-:month-:day/:title
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
