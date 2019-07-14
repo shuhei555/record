@@ -27,3 +27,5 @@ style: compressed
 #   - vendor/cache/                                                                                
 #   - vendor/gems/                                                                                 
 #   - vendor/ruby/  
+
+github: [metadata]
