@@ -18,6 +18,8 @@ permalink: /:categories/:short_year-:month-:day/:title
 sass:
 sass_dir: _sass
 style: compressed
+
+github: [metadata]
 #lsi: true                                                                                          
 # exclude:                                                                                         
 #   - Gemfile                                                                                      
@@ -28,4 +30,3 @@ style: compressed
 #   - vendor/gems/                                                                                 
 #   - vendor/ruby/  
 
-github: [metadata]
