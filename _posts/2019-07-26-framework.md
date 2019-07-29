@@ -18,13 +18,14 @@ BDD はフルスタックのアジャイル開発技法です.BDD は ATDP
 <br>
 - cucumberの構造
 
-  1.Featureファイル
+  Featureファイル
 
 　  テストのシナリオを記述するファイル
 
 　  Given(前提)/When(処理内容)/Then(その結果)として記述する
 <br>
-  2.Stepファイル
+<br>
+  Stepファイル
 
 　  シナリオの動作を記述するファイル
 
