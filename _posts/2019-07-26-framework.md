@@ -133,6 +133,6 @@ BDD はフルスタックのアジャイル開発技法です.BDD は ATDP
 
 - なぜarubaだとcliのテストが簡単になるのか
 
- runコマンドを用いて外部コマンドを実行できるためreturnなどを付け加えなくて良いため
+  runコマンドを用いて外部コマンドを実行できるためreturnなどを付け加えなくて良いため
 
 - [last_comman_startedとは](https://relishapp.com/cucumber/aruba/v/0-11-0/docs/command/return-last-command-started)
