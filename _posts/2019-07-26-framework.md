@@ -113,30 +113,23 @@ BDD はフルスタックのアジャイル開発技法です.BDD は ATDP
 
   コマンドラインツールをCucumber/RSpec/Minitestでテストするgem
 
-  ArubaはCucumber、RSpec、Minitestのような人気のあるTDD/BDDフレームワ\\
-ークでコマンドラインアプリケーションのテストを簡単で楽しいものにする拡\
-張です。
+  ArubaはCucumber、RSpec、Minitestのような人気のあるTDD/BDDフレームワークでコマンドラインアプリケーションのテストを簡単で楽しいものにする拡張です。
 
 - 特徴
 
   1.どんな言語で実装されたコマンドラインツールでもテスト可能
 
-  2.テスト自体はRubyで書くが、テスト対象はPythonのCLI ツールでもGolang\
-のCLI ツールでもよい
+  2.テスト自体はRubyで書くが、テスト対象はPythonのCLI ツールでもGolangのCLI ツールでもよい
 
-  3.ファイルシステムやプロセス環境をヘルパーによって操作できる例えばre\
-adでファイルを読み込みできる
+  3.ファイルシステムやプロセス環境をヘルパーによって操作できる例えばreadでファイルを読み込みできる
 
-  4.例えば run で外部コマンドを実行し、その結果を have_output matcher \
-などで検証できる
+  4.例えば run で外部コマンドを実行し、その結果を have_output matcherなどで検証できる
 
-  5.ファイルシステムやプロセス環境はテストのたびにリセットされるのでle\
-akingstateがない
+  5.ファイルシステムやプロセス環境はテストのたびにリセットされるのでleakingstateがない
 
   6.コミュ二ティーサポートが手厚い
 
-  7.[ドキュメント](https://github.com/cucumber/aruba/tree/master/featu\
-res)にあるとおりに動作することが期待できる
+  7.[ドキュメント](https://github.com/cucumber/aruba/tree/master/features)にあるとおりに動作することが期待できる
 
 - なぜarubaだとcliのテストが簡単になるのか
 
