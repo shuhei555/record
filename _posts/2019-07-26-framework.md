@@ -117,7 +117,8 @@ BDD はフルスタックのアジャイル開発技法です.BDD は ATDP
   コマンドラインツールをCucumber/RSpec/Minitestでテストするgem
 
   ArubaはCucumber、RSpec、Minitestのような人気のあるTDD/BDDフレームワークでコマンドラインアプリケーションのテストを簡単で楽しいものにする拡張です。
-
+<br>
+<br>
 - 特徴
 
   1.どんな言語で実装されたコマンドラインツールでもテスト可能
@@ -133,9 +134,72 @@ BDD はフルスタックのアジャイル開発技法です.BDD は ATDP
   6.コミュ二ティーサポートが手厚い
 
   7.[ドキュメント](https://github.com/cucumber/aruba/tree/master/features)にあるとおりに動作することが期待できる
-
+<br>
+<br>
 - なぜarubaだとcliのテストが簡単になるのか
 
-  runコマンドを用いて外部コマンドを実行できるためreturnなどを付け加えなくて良いため
+  runcommandを用いて外部コマンドを実行できるため
 
+  [外部コマンドとは](https://www.adminweb.jp/command/ini/index5.html#section2)
+<br>
+<br>
+  **rspecを使いfizzbuzzをテストする場合**
+  > ``` {.example}
+  >RSpec.configure do |config|
+  >...
+  >...
+  >
+  >def capture(stream)
+  >  begin
+  >    stream = stream.to_s
+  >    eval "$#{stream} = StringIO.new"
+  >    yield
+  >    result = eval("$#{stream}").string
+  >  ensure
+  >    eval("$#{stream} = #{stream.upcase}")
+  >  end
+  >
+  >  result
+  >  end
+  >end
+  > ```
+  をspec_helper.rbに追加
+  
+  ↑は以下のような処理となっている．
+<br>
+  > ```{example.}
+  >$stdout = StringIO.new  # 標準出力の出力先を StringIO クラスに変更
+  >yield                    # ブロックで渡された処理を実行する
+  >output = $stdout.string # 標準入力を変数 output に代入
+  >$stdout = STDOUT        # 標準出力の出力先を STDOUT に戻す (デフォルトが STDOUT なので)
+  > ```
+<br>
+<br>
+  <font color = "Green">テストコード</font>
+  >```{.example}
+  >require 'spec_helper'
+  >
+  >describe 'fizzbuzz subcommand' do
+  >   expected = %w(FizzBuzz 1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz).join(',')
+  >   it 'fizzbuzz 15 を実行' do
+  >     output = capture(:stdout){Fizzbuzz::CLI.start( %w[fizzbuzz 15])}
+  >     expect(output).to match(expected)
+  >   end
+  >end
+  >```
+  <br>
+  **arubaを使いfizzbuzzをテストする場合**
+   <font color = "Green">テストコード</font>
+   >```{.example}
+   >require 'spec_helper'
+   >
+   >RSpec.describe 'fizzbuzz command', type: :aruba do
+   >  context 'fizzbuzz subcommand' do
+   >    expected = %w(FizzBuzz 1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz11 Fizz 13 14 FizzBuzz).join(',')
+   >    before(:each) { run_command('fizzbuzz fizzbuzz 15') }
+   >    it { expect(last_command_started).to be_successfully_executed }
+   >    it { expect(last_command_started).to have_output(expected) }
+   >  end
+   >end
+   >```
 - [last_comman_startedとは](https://relishapp.com/cucumber/aruba/v/0-11-0/docs/command/return-last-command-started)
