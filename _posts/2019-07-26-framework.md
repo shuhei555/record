@@ -202,4 +202,4 @@ BDD はフルスタックのアジャイル開発技法です.BDD は ATDP
    >  end
    >end
    >```
-- [last_comman_startedとは](https://relishapp.com/cucumber/aruba/v/0-11-0/docs/command/return-last-command-started)
+- [last_command_startedとは](https://relishapp.com/cucumber/aruba/v/0-11-0/docs/command/return-last-command-started)
